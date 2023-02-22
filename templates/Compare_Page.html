@@ -2,19 +2,25 @@
 <html>
   <head>
     <title>Compare Amazon Prices</title>
-    
+    <style>
+      td {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     {% extends 'main.html' %}
     {% block content %}
     <h1>Compare Amazon Prices</h1>
 
-    <form action="{% url 'Compare_Page' %}" method="GET">
-      <label for="search_term">Search Term:</label>
-      <input type="text" id="search_term" name="search_term" />
-      <button type="submit">Search</button>
-    </form>
-
+    <section>
+      <form action="{% url 'Compare_Page' %}" method="GET">
+        <label for="search_term">Search Term:</label>
+        <input type="text" id="search_term" name="search_term" />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <section>
     {% if results %}
     <h2>Search results for "{{ search_term }}"</h2>
     <table>
@@ -24,14 +30,15 @@
             <img src="{{ result.image_url }}" style="max-width: 200px" /><br>
             {{ result.title }}<br>
             {{ result.currency_symbol }}{{ result.price }}<br>
-            <a href="https://www.amazon.de{{ result.product_url }}" target="_blank"> <img src="https://img.freeflagicons.com/thumb/round_icon/germany/germany_640.png" style="max-width: 20px"></a>
             <a href="https://www.amazon.co.uk{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/united_kingdom/united_kingdom_640.png" style="max-width: 20px"></a>
             <a href="https://www.amazon.com.be{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/united_states_of_america/united_states_of_america_640.png" style="max-width: 20px"></a>
+            <a href="https://www.amazon.de{{ result.product_url }}" target="_blank"> <img src="https://img.freeflagicons.com/thumb/round_icon/germany/germany_640.png" style="max-width: 20px"></a>
             <a href="https://www.amazon.fr{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/france/france_640.png" style="max-width: 20px"></a>
           </td>
         {% endfor %}
       </tbody>
     </table>
+    </section>
     {% endif %}
     {% endblock content %}
   </body>
