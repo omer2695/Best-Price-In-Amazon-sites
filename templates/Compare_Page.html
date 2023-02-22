@@ -4,6 +4,8 @@
     <title>Compare Amazon Prices</title>
   </head>
   <body>
+    {% extends 'main.html' %}
+    {% block content %}
     <h1>Compare Amazon Prices</h1>
 
     <form action="{% url 'Compare_Page' %}" method="GET">
@@ -40,5 +42,6 @@
       </tbody>
     </table>
     {% endif %}
+    {% endblock content %}
   </body>
 </html>
