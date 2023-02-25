@@ -1,27 +1,18 @@
+{% extends 'main.html' %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Compare Amazon Prices</title>
-  <style>
-    h2{
-      margin-left: 40%;
-    }
-    td {
-      text-align: center;
-    }
-    div[name="search-container"] {
-      text-align: center;
-
-    }
-    input[name="search-container"]{
-      text-align: center;
-    }
-  </style>
+  {%load static%}
+  <link rel="stylesheet" href="{%static 'style.css'%}" >
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 
 <body>
-  {% extends 'main.html' %}
   {% block content %}
   <h1>Compare Amazon Prices</h1>
 
@@ -56,14 +47,15 @@
                   src="https://img.freeflagicons.com/thumb/round_icon/germany/germany_640.png"
                   style="max-width: 20px"></a>
               <a href="https://www.amazon.fr{{ result.product_url }}" target="_blank"><img
-                  src="https://img.freeflagicons.com/thumb/round_icon/france/france_640.png" style="max-width: 20px"></a>
+                  src="https://img.freeflagicons.com/thumb/round_icon/france/france_640.png"
+                  style="max-width: 20px"></a>
             </td>
             {% endfor %}
         </tbody>
       </table>
     </div>
   </div>
-  
+
   {% endif %}
   {% endblock content %}
 </body>

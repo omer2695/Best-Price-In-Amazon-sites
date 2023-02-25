@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Find the best price</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'style.css'%}" >
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
+
 <body>
     {% include 'nvigationBar.html' %}
+    
     {% block content %}
 
 
     {% endblock %}
 
-    
+
 </body>
+
 </html>
