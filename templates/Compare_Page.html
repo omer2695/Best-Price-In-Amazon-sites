@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Compare Amazon Prices</title>
-    <style>
-      td {
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    {% extends 'main.html' %}
-    {% block content %}
-    <h1>Compare Amazon Prices</h1>
 
-    <section>
+<head>
+  <title>Compare Amazon Prices</title>
+  <style>
+    td {
+      text-align: center;
+    }
+    div[name="search-container"] {
+      text-align: center;
+
+    }
+    input[name="search-container"]{
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  {% extends 'main.html' %}
+  {% block content %}
+  <h1>Compare Amazon Prices</h1>
+
+  <div>
+    <div name="search-container">
       <form action="{% url 'Compare_Page' %}" method="GET">
-        <label for="search_term">Search Term:</label>
-        <input type="text" id="search_term" name="search_term" />
+        <input type="text" name="search_term" name="search_term"> </input>
         <button type="submit">Search</button>
       </form>
-    </section>
-    <section>
-    {% if results %}
-    <h2>Search results for "{{ search_term }}"</h2>
-    <table>
-      <tbody>
-        {% for result in results %}
-          <td>
-            <img src="{{ result.image_url }}" style="max-width: 200px" /><br>
-            {{ result.title }}<br>
-            {{ result.currency_symbol }}{{ result.price }}<br>
-            <a href="https://www.amazon.co.uk{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/united_kingdom/united_kingdom_640.png" style="max-width: 20px"></a>
-            <a href="https://www.amazon.com.be{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/united_states_of_america/united_states_of_america_640.png" style="max-width: 20px"></a>
-            <a href="https://www.amazon.de{{ result.product_url }}" target="_blank"> <img src="https://img.freeflagicons.com/thumb/round_icon/germany/germany_640.png" style="max-width: 20px"></a>
-            <a href="https://www.amazon.fr{{ result.product_url }}" target="_blank"><img src="https://img.freeflagicons.com/thumb/round_icon/france/france_640.png" style="max-width: 20px"></a>
-          </td>
-        {% endfor %}
-      </tbody>
-    </table>
-    </section>
-    {% endif %}
-    {% endblock content %}
-  </body>
+    </div>
+    <div>
+      {% if results %}
+      <h2>Search results for "{{ search_term }}"</h2>
+      <table>
+        <tbody>
+          {% for result in results %}
+          {% if forloop.counter0|divisibleby:5 %}
+          </tr>
+          <tr>
+            {% endif %}
+            <td>
+              <img src="{{ result.image_url }}" style="max-width: 200px" /><br>
+              {{ result.title }}<br>
+              {{ result.currency_symbol }}{{ result.price }}<br>
+              <a href="https://www.amazon.co.uk{{ result.product_url }}" target="_blank"><img
+                  src="https://img.freeflagicons.com/thumb/round_icon/united_kingdom/united_kingdom_640.png"
+                  style="max-width: 20px"></a>
+              <a href="https://www.amazon.com.be{{ result.product_url }}" target="_blank"><img
+                  src="https://img.freeflagicons.com/thumb/round_icon/united_states_of_america/united_states_of_america_640.png"
+                  style="max-width: 20px"></a>
+              <a href="https://www.amazon.de{{ result.product_url }}" target="_blank"> <img
+                  src="https://img.freeflagicons.com/thumb/round_icon/germany/germany_640.png"
+                  style="max-width: 20px"></a>
+              <a href="https://www.amazon.fr{{ result.product_url }}" target="_blank"><img
+                  src="https://img.freeflagicons.com/thumb/round_icon/france/france_640.png" style="max-width: 20px"></a>
+            </td>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  {% endif %}
+  {% endblock content %}
+</body>
+
 </html>
