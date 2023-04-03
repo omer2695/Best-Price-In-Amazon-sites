@@ -1,27 +1,32 @@
 h2 {
   margin-left: 40%;
 }
-td {
-  text-align: center;
-}
+
 div[name="search-container"] {
   text-align: center;
 }
 input[name="search-container"] {
   text-align: center;
 }
+div[name="items-table"]{
+  background-color: #dac292;
+  margin: 10%;
+  background-size: contain;
+}
 body {
-  background-color: #f2f2f2;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 10%;
-  background-image: url("https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2Vic2l0ZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80");
-  background-size: cover;
+  background-image: url("https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: contain;
 }
 td {
+  text-align: left;
+}
+div[class^="textAndImageItems"]{
   text-align: center;
 }
 div[name="search_form"] {
@@ -53,7 +58,7 @@ table td {
 }
 
 table td img {
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 img[name="navLogo"] {
   border-radius: 50%;

@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from django.shortcuts import render
 
-
 def HomePage(request):
     return render(request, 'home.html')
     
@@ -12,7 +11,7 @@ def SearchPage(request):
 
 
 def Compare_Page(request):
-    search_term = request.GET.get('search_term')  # Default to "laptop" if search term is not provided
+    search_term = request.GET.get('search_term')  # Search_term is the input.
 
     # Create a list of Amazon URLs with the search term
     urls = [
